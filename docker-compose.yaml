@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  instagram-checker:
+    build: .
+    container_name: instagram-username-checker
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - APIFY_TOKEN=${APIFY_TOKEN}
+      - PORT=3000
+    volumes:
+      - ./src:/app/src
